@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Get movie suggestions based on your mood. Watch movies online for free tailored to your emotions.">
+    <meta name="keywords"
+        content="movie suggestions, watch movies online, mood-based movies, movie recommendations, free movies online">
+    <link rel="icon" type="image/png" href="play.png">
+    <title>Movie Suggestions Based on User Moods</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .modes ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .modes ul li {
+        width: fit-content;
+        height: 40px;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: #2e333d;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    .modes ul li.active {
+        background-color: #0067ac;
+    }
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+        background-color: #121418;
+    }
+
+    .modes {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+
+    }
+
+    @media only screen and (max-width:700px) {
+        .modes ul {
+            align-items: start;
+            justify-content: start;
+            padding: 10px;
+        }
+
+        .modes ul li {
+            padding: 4px;
+            font-size: 16px;
+        }
+    }
+
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action button {
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        font-size: 30px;
+        background-color: transparent;
+        margin-top: 50px;
+        border: 1px solid wheat;
+        background: linear-gradient(to left, #001525, #0079c9);
+        color: white;
+        font-weight: 900;
+        border-radius: 10px;
+
+    }
+</style>
+
+<body>
+    <h1
+        style="text-align: center; color: white;font-size: 30px; text-transform: capitalize; margin:30px; font-family: cursive;">
+        Your mood will decide which movies to watch </h1>
+    <div class="modes">
+        <ul>
+
+            <li>Sad😔</li>
+            <li>Tired😪</li>
+            <li>Scared😱</li>
+            <li>Proud🥳</li>
+            <li>Angry😠</li>
+            <li>Bored😐</li>
+            <li>Guilty😔</li>
+            <li>Lazy😴</li>
+            <li>Gloomy🌧️</li>
+            <li>Excited😃</li>
+            <li>Relaxed😌</li>
+            <li>Anxious😟</li>
+            <li>Inspired🌟</li>
+            <li>Hungry🍔</li>
+            <li>Joyful😄</li>
+            <li>Jealous😒</li>
+            <li>Lonely🥺</li>
+            <li>Hopeful🌈</li>
+            <li>Curious🧐</li>
+            <li>Playful😜</li>
+            <li>Sleepy😴</li>
+            <li>Amused😆</li>
+            <li>Mindful🧘</li>
+            <li>Romantic💕</li>
+            <li>Energetic⚡</li>
+            <li>Nostalgic🕰️</li>
+            <li>Motivated💪</li>
+            <li>Peaceful🕊️</li>
+            <li>Reflective🤔</li>
+            <li>Grateful🙏</li>
+            <li>Stressed😫</li>
+            <li>Content😌</li>
+            <li>Fearful😨</li>
+            <li>Confused😕</li>
+            <li>Euphoric😆</li>
+            <li>Thrilled😁</li>
+            <li>Confident😎</li>
+            <li>Surprised😲</li>
+            <li>Comforted🤗</li>
+            <li>Determined🚀</li>
+            <li>Impatient😤</li>
+            <li>Skeptical🤨</li>
+            <li>Sympathetic</li>
+            <li>Optimistic🌞</li>
+            <li>Disgusted🤢</li>
+            <li>Empowered🦸</li>
+            <li>Overwhelmed😩</li>
+            <li>Melancholic😔</li>
+            <li>Adventurous🌍</li>
+        </ul>
+    </div>
+
+    <div class="action">
+        <button onclick="next()">Go</button>
+    </div>
+</body>
+<script>
+    let modes = document.querySelectorAll(".modes ul li");
+    const moodToGenre = {
+        Happy: "Comedy",
+        Sad: "Drama",
+        Excited: "Action",
+        Relaxed: "Romance",
+        Inspired: "Biography",
+        Anxious: "Thriller",
+        Angry: "Crime",
+        Romantic: "Romance",
+        Adventurous: "Adventure",
+        Reflective: "Biography",
+        Bored: "Comedy",
+        Energetic: "Action",
+        Nostalgic: "History",
+        Motivated: "Sport",
+        Peaceful: "Fantasy",
+        Joyful: "Family",
+        Melancholic: "Drama",
+        Hopeful: "Drama",
+        Confident: "Action",
+        Curious: "Documentary",
+        Playful: "Animation",
+        Grateful: "Drama",
+        Surprised: "Mystery",
+        Comforted: "Family",
+        Stressed: "Thriller",
+        Content: "Drama",
+        Determined: "Sport",
+        Fearful: "Horror",
+        Confused: "Mystery",
+        Euphoric: "Musical",
+        Gloomy: "Film-Noir",
+        Impatient: "Thriller",
+        Jealous: "Drama",
+        Lonely: "Romance",
+        Overwhelmed: "Drama",
+        Proud: "War",
+        Skeptical: "Mystery",
+        Sleepy: "Fantasy",
+        Sympathetic: "Drama",
+        Thrilled: "Adventure",
+        Amused: "Comedy",
+        Disgusted: "Horror",
+        Empowered: "Action",
+        Guilty: "Crime",
+        Hungry: "Documentary",
+        Lazy: "Comedy",
+        Mindful: "Documentary",
+        Optimistic: "Fantasy",
+        Scared: "Horror",
+        Tired: "Fantasy"
+    };
+
+
+    for (const iterator of modes) {
+        iterator.addEventListener("click", (e) => {
+            // Remove the "active" class from all list items
+            modes.forEach(mode => mode.classList.remove("active"));
+
+            e.target.classList.add("active");
+        });
+    }
+
+    function getActiveModeText() {
+        // Select the list item with the "active" class
+        const activeItem = document.querySelector(".modes ul li.active");
+        // Return the innerText of the active item, or null if no item is active
+        return activeItem ? activeItem.innerText : null;
+    }
+    function removeEmoji(text) {
+        // Use a regular expression to remove all emoji characters
+        return text.replace(/[^\p{L}\p{N}\p{P}\p{Z}]+/gu, '').trim();
+    }
+
+    function next() {
+        let active = getActiveModeText();
+        active = removeEmoji(active);
+        let sugession = moodToGenre[active];
+        window.location.href = `https://movieflicks-one.vercel.app/movies?name=${sugession}`
+    }
+</script>
+
+</html>
