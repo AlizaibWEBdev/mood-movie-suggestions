@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-3515940925007451">
     <meta name="description"
-        content="Get movie suggestions based on your mood. Watch movies online for free tailored to your emotions.">
+        content="Discover the perfect movie based on your mood. Get personalized movie suggestions and watch movies online for free tailored to your emotions.">
     <meta name="keywords"
         content="movie suggestions, watch movies online, mood-based movies, movie recommendations, free movies online">
     <link rel="icon" type="image/png" href="play.png">
-    <title>Movie Suggestions Based on User Moods</title>
+    <title>Movie Suggestions Based on Your Mood</title>
+    <link rel="canonical" href="https://mood2movie.vercel.app/">
+    <meta name="robots" content="index, follow">
 </head>
 <style>
     * {
@@ -106,56 +109,34 @@
         Your mood will decide which movies to watch </h1>
     <div class="modes">
         <ul>
-
             <li>Sad😔</li>
             <li>Tired😪</li>
             <li>Scared😱</li>
             <li>Proud🥳</li>
             <li>Angry😠</li>
             <li>Bored😐</li>
-            <li>Guilty😔</li>
-            <li>Lazy😴</li>
-            <li>Gloomy🌧️</li>
             <li>Excited😃</li>
             <li>Relaxed😌</li>
             <li>Anxious😟</li>
-            <li>Inspired🌟</li>
-            <li>Hungry🍔</li>
             <li>Joyful😄</li>
-            <li>Jealous😒</li>
             <li>Lonely🥺</li>
-            <li>Hopeful🌈</li>
             <li>Curious🧐</li>
             <li>Playful😜</li>
             <li>Sleepy😴</li>
             <li>Amused😆</li>
-            <li>Mindful🧘</li>
             <li>Romantic💕</li>
             <li>Energetic⚡</li>
-            <li>Nostalgic🕰️</li>
             <li>Motivated💪</li>
-            <li>Peaceful🕊️</li>
-            <li>Reflective🤔</li>
-            <li>Grateful🙏</li>
             <li>Stressed😫</li>
             <li>Content😌</li>
-            <li>Fearful😨</li>
             <li>Confused😕</li>
-            <li>Euphoric😆</li>
-            <li>Thrilled😁</li>
-            <li>Confident😎</li>
             <li>Surprised😲</li>
             <li>Comforted🤗</li>
             <li>Determined🚀</li>
-            <li>Impatient😤</li>
-            <li>Skeptical🤨</li>
-            <li>Sympathetic</li>
             <li>Optimistic🌞</li>
-            <li>Disgusted🤢</li>
-            <li>Empowered🦸</li>
             <li>Overwhelmed😩</li>
-            <li>Melancholic😔</li>
             <li>Adventurous🌍</li>
+
         </ul>
     </div>
 
@@ -166,57 +147,36 @@
 <script>
     let modes = document.querySelectorAll(".modes ul li");
     const moodToGenre = {
-        Happy: "Comedy",
         Sad: "Drama",
-        Excited: "Action",
-        Relaxed: "Romance",
-        Inspired: "Biography",
-        Anxious: "Thriller",
-        Angry: "Crime",
-        Romantic: "Romance",
-        Adventurous: "Adventure",
-        Reflective: "Biography",
-        Bored: "Comedy",
-        Energetic: "Action",
-        Nostalgic: "History",
-        Motivated: "Sport",
-        Peaceful: "Fantasy",
-        Joyful: "Family",
-        Melancholic: "Drama",
-        Hopeful: "Drama",
-        Confident: "Action",
-        Curious: "Documentary",
-        Playful: "Animation",
-        Grateful: "Drama",
-        Surprised: "Mystery",
-        Comforted: "Family",
-        Stressed: "Thriller",
-        Content: "Drama",
-        Determined: "Sport",
-        Fearful: "Horror",
-        Confused: "Mystery",
-        Euphoric: "Musical",
-        Gloomy: "Film-Noir",
-        Impatient: "Thriller",
-        Jealous: "Drama",
-        Lonely: "Romance",
-        Overwhelmed: "Drama",
-        Proud: "War",
-        Skeptical: "Mystery",
-        Sleepy: "Fantasy",
-        Sympathetic: "Drama",
-        Thrilled: "Adventure",
-        Amused: "Comedy",
-        Disgusted: "Horror",
-        Empowered: "Action",
-        Guilty: "Crime",
-        Hungry: "Documentary",
-        Lazy: "Comedy",
-        Mindful: "Documentary",
-        Optimistic: "Fantasy",
+        Tired: "Relaxing",
         Scared: "Horror",
-        Tired: "Fantasy"
+        Proud: "Biopic",
+        Angry: "Action",
+        Bored: "Comedy",
+        Excited: "Adventure",
+        Relaxed: "Romantic",
+        Anxious: "Thriller",
+        Joyful: "Family",
+        Lonely: "Romantic",
+        Curious: "Mystery",
+        Playful: "Animation",
+        Sleepy: "Light Comedy",
+        Amused: "Comedy",
+        Romantic: "Romantic",
+        Energetic: "Action",
+        Motivated: "Documentary",
+        Stressed: "Feel-Good",
+        Content: "Drama",
+        Confused: "Mystery",
+        Surprised: "Sci-Fi",
+        Comforted: "Family",
+        Determined: "Sport",
+        Optimistic: "Inspirational",
+        Overwhelmed: "Fantasy",
+        Adventurous: "Adventure"
     };
+
+
 
 
     for (const iterator of modes) {
